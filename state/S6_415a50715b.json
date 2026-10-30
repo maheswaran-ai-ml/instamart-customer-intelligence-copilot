@@ -1,0 +1,50 @@
+{
+  "run_id": "S6_415a50715b",
+  "scenario_id": "S6",
+  "messages": [
+    {
+      "role": "system",
+      "content": "\nAGENT\nYou are an Instamart refund support agent.\nUse the available tools to look up the order, search the policy,\ncalculate the refund and issue or escalate it.\nOnly completed orders can receive refunds.\nOrders delivered in more than 45 minutes qualify for a full refund.\nOrders delivered in 45 minutes or less receive no refund.\nRefunds above INR 1000 must be escalated to a human.\nFollow tool results and do not invent order information.\n"
+    },
+    {
+      "role": "user",
+      "content": "Refund for order ORD-999999 please."
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_1",
+          "name": "get_order",
+          "arguments": {
+            "order_id": "ORD-999999"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_1",
+      "name": "get_order",
+      "content": "{\"error\": \"order not found\"}"
+    }
+  ],
+  "tokens_used": 115,
+  "step_number": 1,
+  "executed_tools": [
+    "get_order"
+  ],
+  "steps": [
+    {
+      "tool": "get_order",
+      "arguments": {
+        "order_id": "ORD-999999"
+      },
+      "observation": {
+        "error": "order not found"
+      }
+    }
+  ],
+  "llm_calls": 1
+}
